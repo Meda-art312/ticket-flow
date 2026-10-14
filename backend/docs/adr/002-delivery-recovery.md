@@ -1,0 +1,2 @@
+# ADR 002: Durable inbox/outbox and financial identities
+Accepted. Commit effects plus outbox; verify and commit inbox before acknowledging webhooks. Publisher confirms plus mandatory routing precede marking sent. Consumers commit dedupe plus durable jobs before ack. Financial operations persist identity before calls, lease execution, reuse keys conservatively and expose uncertainty. No end-to-end exactly-once claim. SMTP duplicates remain possible. Five bounded retries lead to durable dead-letter handling and audited replay.

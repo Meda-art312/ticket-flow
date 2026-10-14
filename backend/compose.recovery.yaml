@@ -1,0 +1,18 @@
+services:
+  worker:
+    extends: { file: compose.test.yaml, service: api }
+    command: [node, dist/src/worker.js]
+    healthcheck:
+      test:
+        [
+          CMD,
+          node,
+          -e,
+          "fetch('http://localhost:3001/health/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  recovery:
+    extends: { file: compose.test.yaml, service: test }
+    command: [npx, tsx, scripts/recovery.ts, prepare]

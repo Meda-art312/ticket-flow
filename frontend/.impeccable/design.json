@@ -1,0 +1,664 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-14T00:12:20.125Z",
+  "title": "Design System: TicketFlow",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Deep Cobalt",
+        "tonalRamp": [
+          "oklch(15% 0.13083 266.76)",
+          "oklch(25% 0.13083 266.76)",
+          "oklch(36% 0.13083 266.76)",
+          "oklch(48% 0.13083 266.76)",
+          "oklch(60% 0.13083 266.76)",
+          "oklch(72% 0.13083 266.76)",
+          "oklch(84% 0.13083 266.76)",
+          "oklch(95% 0.13083 266.76)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Deep Cobalt Hover",
+        "tonalRamp": [
+          "oklch(15% 0.11391 266.33)",
+          "oklch(25% 0.11391 266.33)",
+          "oklch(36% 0.11391 266.33)",
+          "oklch(48% 0.11391 266.33)",
+          "oklch(60% 0.11391 266.33)",
+          "oklch(72% 0.11391 266.33)",
+          "oklch(84% 0.11391 266.33)",
+          "oklch(95% 0.11391 266.33)"
+        ]
+      },
+      "danger": {
+        "role": "primary",
+        "displayName": "Brick Danger",
+        "tonalRamp": [
+          "oklch(15% 0.12710 25.53)",
+          "oklch(25% 0.12710 25.53)",
+          "oklch(36% 0.12710 25.53)",
+          "oklch(48% 0.12710 25.53)",
+          "oklch(60% 0.12710 25.53)",
+          "oklch(72% 0.12710 25.53)",
+          "oklch(84% 0.12710 25.53)",
+          "oklch(95% 0.12710 25.53)"
+        ]
+      },
+      "danger-hover": {
+        "role": "primary",
+        "displayName": "Brick Danger Hover",
+        "tonalRamp": [
+          "oklch(15% 0.10710 25.93)",
+          "oklch(25% 0.10710 25.93)",
+          "oklch(36% 0.10710 25.93)",
+          "oklch(48% 0.10710 25.93)",
+          "oklch(60% 0.10710 25.93)",
+          "oklch(72% 0.10710 25.93)",
+          "oklch(84% 0.10710 25.93)",
+          "oklch(95% 0.10710 25.93)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Muted Bone",
+        "tonalRamp": [
+          "oklch(15% 0.00958 93.57)",
+          "oklch(25% 0.00958 93.57)",
+          "oklch(36% 0.00958 93.57)",
+          "oklch(48% 0.00958 93.57)",
+          "oklch(60% 0.00958 93.57)",
+          "oklch(72% 0.00958 93.57)",
+          "oklch(84% 0.00958 93.57)",
+          "oklch(95% 0.00958 93.57)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "tonalRamp": [
+          "oklch(15% 0.00670 97.35)",
+          "oklch(25% 0.00670 97.35)",
+          "oklch(36% 0.00670 97.35)",
+          "oklch(48% 0.00670 97.35)",
+          "oklch(60% 0.00670 97.35)",
+          "oklch(72% 0.00670 97.35)",
+          "oklch(84% 0.00670 97.35)",
+          "oklch(95% 0.00670 97.35)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Dark Ink",
+        "tonalRamp": [
+          "oklch(15% 0.01230 135.06)",
+          "oklch(25% 0.01230 135.06)",
+          "oklch(36% 0.01230 135.06)",
+          "oklch(48% 0.01230 135.06)",
+          "oklch(60% 0.01230 135.06)",
+          "oklch(72% 0.01230 135.06)",
+          "oklch(84% 0.01230 135.06)",
+          "oklch(95% 0.01230 135.06)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Soft Olive Ink",
+        "tonalRamp": [
+          "oklch(15% 0.01721 132.62)",
+          "oklch(25% 0.01721 132.62)",
+          "oklch(36% 0.01721 132.62)",
+          "oklch(48% 0.01721 132.62)",
+          "oklch(60% 0.01721 132.62)",
+          "oklch(72% 0.01721 132.62)",
+          "oklch(84% 0.01721 132.62)",
+          "oklch(95% 0.01721 132.62)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Paper Divider",
+        "tonalRamp": [
+          "oklch(15% 0.01505 115.08)",
+          "oklch(25% 0.01505 115.08)",
+          "oklch(36% 0.01505 115.08)",
+          "oklch(48% 0.01505 115.08)",
+          "oklch(60% 0.01505 115.08)",
+          "oklch(72% 0.01505 115.08)",
+          "oklch(84% 0.01505 115.08)",
+          "oklch(95% 0.01505 115.08)"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Active Field Olive",
+        "tonalRamp": [
+          "oklch(15% 0.02726 130.09)",
+          "oklch(25% 0.02726 130.09)",
+          "oklch(36% 0.02726 130.09)",
+          "oklch(48% 0.02726 130.09)",
+          "oklch(60% 0.02726 130.09)",
+          "oklch(72% 0.02726 130.09)",
+          "oklch(84% 0.02726 130.09)",
+          "oklch(95% 0.02726 130.09)"
+        ]
+      },
+      "field-border-hover": {
+        "role": "neutral",
+        "displayName": "Field Olive Hover",
+        "tonalRamp": [
+          "oklch(15% 0.03674 132.56)",
+          "oklch(25% 0.03674 132.56)",
+          "oklch(36% 0.03674 132.56)",
+          "oklch(48% 0.03674 132.56)",
+          "oklch(60% 0.03674 132.56)",
+          "oklch(72% 0.03674 132.56)",
+          "oklch(84% 0.03674 132.56)",
+          "oklch(95% 0.03674 132.56)"
+        ]
+      },
+      "field-border-disabled": {
+        "role": "neutral",
+        "displayName": "Disabled Field Olive",
+        "tonalRamp": [
+          "oklch(15% 0.02018 122.92)",
+          "oklch(25% 0.02018 122.92)",
+          "oklch(36% 0.02018 122.92)",
+          "oklch(48% 0.02018 122.92)",
+          "oklch(60% 0.02018 122.92)",
+          "oklch(72% 0.02018 122.92)",
+          "oklch(84% 0.02018 122.92)",
+          "oklch(95% 0.02018 122.92)"
+        ]
+      },
+      "field-disabled": {
+        "role": "neutral",
+        "displayName": "Disabled Paper",
+        "tonalRamp": [
+          "oklch(15% 0.01208 111.77)",
+          "oklch(25% 0.01208 111.77)",
+          "oklch(36% 0.01208 111.77)",
+          "oklch(48% 0.01208 111.77)",
+          "oklch(60% 0.01208 111.77)",
+          "oklch(72% 0.01208 111.77)",
+          "oklch(84% 0.01208 111.77)",
+          "oklch(95% 0.01208 111.77)"
+        ]
+      },
+      "field-placeholder": {
+        "role": "neutral",
+        "displayName": "Field Placeholder Olive",
+        "tonalRamp": [
+          "oklch(15% 0.02439 127.68)",
+          "oklch(25% 0.02439 127.68)",
+          "oklch(36% 0.02439 127.68)",
+          "oklch(48% 0.02439 127.68)",
+          "oklch(60% 0.02439 127.68)",
+          "oklch(72% 0.02439 127.68)",
+          "oklch(84% 0.02439 127.68)",
+          "oklch(95% 0.02439 127.68)"
+        ]
+      },
+      "secondary-border": {
+        "role": "neutral",
+        "displayName": "Secondary Olive Boundary",
+        "tonalRamp": [
+          "oklch(15% 0.02405 126.36)",
+          "oklch(25% 0.02405 126.36)",
+          "oklch(36% 0.02405 126.36)",
+          "oklch(48% 0.02405 126.36)",
+          "oklch(60% 0.02405 126.36)",
+          "oklch(72% 0.02405 126.36)",
+          "oklch(84% 0.02405 126.36)",
+          "oklch(95% 0.02405 126.36)"
+        ]
+      },
+      "secondary-hover": {
+        "role": "neutral",
+        "displayName": "Secondary Neutral Hover",
+        "tonalRamp": [
+          "oklch(15% 0.01488 115.06)",
+          "oklch(25% 0.01488 115.06)",
+          "oklch(36% 0.01488 115.06)",
+          "oklch(48% 0.01488 115.06)",
+          "oklch(60% 0.01488 115.06)",
+          "oklch(72% 0.01488 115.06)",
+          "oklch(84% 0.01488 115.06)",
+          "oklch(95% 0.01488 115.06)"
+        ]
+      },
+      "search-surface": {
+        "role": "neutral",
+        "displayName": "Search Surface",
+        "tonalRamp": [
+          "oklch(15% 0.01486 115.06)",
+          "oklch(25% 0.01486 115.06)",
+          "oklch(36% 0.01486 115.06)",
+          "oklch(48% 0.01486 115.06)",
+          "oklch(60% 0.01486 115.06)",
+          "oklch(72% 0.01486 115.06)",
+          "oklch(84% 0.01486 115.06)",
+          "oklch(95% 0.01486 115.06)"
+        ]
+      },
+      "selected-surface": {
+        "role": "neutral",
+        "displayName": "Selected Category Surface",
+        "tonalRamp": [
+          "oklch(15% 0.01159 264.51)",
+          "oklch(25% 0.01159 264.51)",
+          "oklch(36% 0.01159 264.51)",
+          "oklch(48% 0.01159 264.51)",
+          "oklch(60% 0.01159 264.51)",
+          "oklch(72% 0.01159 264.51)",
+          "oklch(84% 0.01159 264.51)",
+          "oklch(95% 0.01159 264.51)"
+        ]
+      },
+      "badge-neutral-surface": {
+        "role": "neutral",
+        "displayName": "Neutral Badge Surface",
+        "tonalRamp": [
+          "oklch(15% 0.01295 266.70)",
+          "oklch(25% 0.01295 266.70)",
+          "oklch(36% 0.01295 266.70)",
+          "oklch(48% 0.01295 266.70)",
+          "oklch(60% 0.01295 266.70)",
+          "oklch(72% 0.01295 266.70)",
+          "oklch(84% 0.01295 266.70)",
+          "oklch(95% 0.01295 266.70)"
+        ]
+      },
+      "badge-neutral-ink": {
+        "role": "neutral",
+        "displayName": "Neutral Badge Ink",
+        "tonalRamp": [
+          "oklch(15% 0.06584 262.51)",
+          "oklch(25% 0.06584 262.51)",
+          "oklch(36% 0.06584 262.51)",
+          "oklch(48% 0.06584 262.51)",
+          "oklch(60% 0.06584 262.51)",
+          "oklch(72% 0.06584 262.51)",
+          "oklch(84% 0.06584 262.51)",
+          "oklch(95% 0.06584 262.51)"
+        ]
+      },
+      "badge-positive-surface": {
+        "role": "neutral",
+        "displayName": "Positive Badge Surface",
+        "tonalRamp": [
+          "oklch(15% 0.02278 134.95)",
+          "oklch(25% 0.02278 134.95)",
+          "oklch(36% 0.02278 134.95)",
+          "oklch(48% 0.02278 134.95)",
+          "oklch(60% 0.02278 134.95)",
+          "oklch(72% 0.02278 134.95)",
+          "oklch(84% 0.02278 134.95)",
+          "oklch(95% 0.02278 134.95)"
+        ]
+      },
+      "badge-positive-ink": {
+        "role": "neutral",
+        "displayName": "Positive Badge Ink",
+        "tonalRamp": [
+          "oklch(15% 0.06324 142.11)",
+          "oklch(25% 0.06324 142.11)",
+          "oklch(36% 0.06324 142.11)",
+          "oklch(48% 0.06324 142.11)",
+          "oklch(60% 0.06324 142.11)",
+          "oklch(72% 0.06324 142.11)",
+          "oklch(84% 0.06324 142.11)",
+          "oklch(95% 0.06324 142.11)"
+        ]
+      },
+      "badge-negative-surface": {
+        "role": "neutral",
+        "displayName": "Negative Badge Surface",
+        "tonalRamp": [
+          "oklch(15% 0.01914 46.80)",
+          "oklch(25% 0.01914 46.80)",
+          "oklch(36% 0.01914 46.80)",
+          "oklch(48% 0.01914 46.80)",
+          "oklch(60% 0.01914 46.80)",
+          "oklch(72% 0.01914 46.80)",
+          "oklch(84% 0.01914 46.80)",
+          "oklch(95% 0.01914 46.80)"
+        ]
+      },
+      "badge-negative-ink": {
+        "role": "neutral",
+        "displayName": "Negative Badge Ink",
+        "tonalRamp": [
+          "oklch(15% 0.10425 27.02)",
+          "oklch(25% 0.10425 27.02)",
+          "oklch(36% 0.10425 27.02)",
+          "oklch(48% 0.10425 27.02)",
+          "oklch(60% 0.10425 27.02)",
+          "oklch(72% 0.10425 27.02)",
+          "oklch(84% 0.10425 27.02)",
+          "oklch(95% 0.10425 27.02)"
+        ]
+      },
+      "poster-navy": {
+        "role": "secondary",
+        "displayName": "Poster Navy",
+        "tonalRamp": [
+          "oklch(15% 0.08471 265.71)",
+          "oklch(25% 0.08471 265.71)",
+          "oklch(36% 0.08471 265.71)",
+          "oklch(48% 0.08471 265.71)",
+          "oklch(60% 0.08471 265.71)",
+          "oklch(72% 0.08471 265.71)",
+          "oklch(84% 0.08471 265.71)",
+          "oklch(95% 0.08471 265.71)"
+        ]
+      },
+      "poster-navy-ink": {
+        "role": "secondary",
+        "displayName": "Poster Navy Paper",
+        "tonalRamp": [
+          "oklch(15% 0.02310 93.33)",
+          "oklch(25% 0.02310 93.33)",
+          "oklch(36% 0.02310 93.33)",
+          "oklch(48% 0.02310 93.33)",
+          "oklch(60% 0.02310 93.33)",
+          "oklch(72% 0.02310 93.33)",
+          "oklch(84% 0.02310 93.33)",
+          "oklch(95% 0.02310 93.33)"
+        ]
+      },
+      "poster-clay": {
+        "role": "secondary",
+        "displayName": "Poster Clay",
+        "tonalRamp": [
+          "oklch(15% 0.05687 45.05)",
+          "oklch(25% 0.05687 45.05)",
+          "oklch(36% 0.05687 45.05)",
+          "oklch(48% 0.05687 45.05)",
+          "oklch(60% 0.05687 45.05)",
+          "oklch(72% 0.05687 45.05)",
+          "oklch(84% 0.05687 45.05)",
+          "oklch(95% 0.05687 45.05)"
+        ]
+      },
+      "poster-clay-ink": {
+        "role": "secondary",
+        "displayName": "Poster Clay Paper",
+        "tonalRamp": [
+          "oklch(15% 0.02509 81.12)",
+          "oklch(25% 0.02509 81.12)",
+          "oklch(36% 0.02509 81.12)",
+          "oklch(48% 0.02509 81.12)",
+          "oklch(60% 0.02509 81.12)",
+          "oklch(72% 0.02509 81.12)",
+          "oklch(84% 0.02509 81.12)",
+          "oklch(95% 0.02509 81.12)"
+        ]
+      },
+      "poster-sage": {
+        "role": "secondary",
+        "displayName": "Poster Sage",
+        "tonalRamp": [
+          "oklch(15% 0.04352 119.17)",
+          "oklch(25% 0.04352 119.17)",
+          "oklch(36% 0.04352 119.17)",
+          "oklch(48% 0.04352 119.17)",
+          "oklch(60% 0.04352 119.17)",
+          "oklch(72% 0.04352 119.17)",
+          "oklch(84% 0.04352 119.17)",
+          "oklch(95% 0.04352 119.17)"
+        ]
+      },
+      "poster-sage-ink": {
+        "role": "secondary",
+        "displayName": "Poster Sage Ink",
+        "tonalRamp": [
+          "oklch(15% 0.03103 141.33)",
+          "oklch(25% 0.03103 141.33)",
+          "oklch(36% 0.03103 141.33)",
+          "oklch(48% 0.03103 141.33)",
+          "oklch(60% 0.03103 141.33)",
+          "oklch(72% 0.03103 141.33)",
+          "oklch(84% 0.03103 141.33)",
+          "oklch(95% 0.03103 141.33)"
+        ]
+      },
+      "poster-ochre": {
+        "role": "secondary",
+        "displayName": "Poster Ochre",
+        "tonalRamp": [
+          "oklch(15% 0.08111 91.77)",
+          "oklch(25% 0.08111 91.77)",
+          "oklch(36% 0.08111 91.77)",
+          "oklch(48% 0.08111 91.77)",
+          "oklch(60% 0.08111 91.77)",
+          "oklch(72% 0.08111 91.77)",
+          "oklch(84% 0.08111 91.77)",
+          "oklch(95% 0.08111 91.77)"
+        ]
+      },
+      "poster-ochre-ink": {
+        "role": "secondary",
+        "displayName": "Poster Ochre Ink",
+        "tonalRamp": [
+          "oklch(15% 0.03483 78.74)",
+          "oklch(25% 0.03483 78.74)",
+          "oklch(36% 0.03483 78.74)",
+          "oklch(48% 0.03483 78.74)",
+          "oklch(60% 0.03483 78.74)",
+          "oklch(72% 0.03483 78.74)",
+          "oklch(84% 0.03483 78.74)",
+          "oklch(95% 0.03483 78.74)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Discovery Display",
+        "purpose": "Large balanced discovery headline; source responsive overrides are documented in DESIGN.md."
+      },
+      "page-title": {
+        "displayName": "Page Title",
+        "purpose": "Global first-level headings before surface-specific adjustments."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Global second-level headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Global third-level headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Readable Manrope paragraphs with generous leading."
+      },
+      "label": {
+        "displayName": "Form Label",
+        "purpose": "Semibold form labels and legends."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Compact semibold action text."
+      },
+      "poster": {
+        "displayName": "Poster Title",
+        "purpose": "Balanced, wrapping real event names inside geometric event art."
+      }
+    },
+    "shadows": [
+      {
+        "name": "admission-ticket",
+        "value": "0 12px 24px #28342610",
+        "purpose": "Low ambient lift only for the admission ticket."
+      },
+      {
+        "name": "confirmation-dialog",
+        "value": "0 22px 70px #101d2930",
+        "purpose": "Modal lift for the confirmation dialog."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Shared route-reveal and button-transform easing."
+      },
+      {
+        "name": "page-in",
+        "value": "page-in 0.45s var(--ease)",
+        "purpose": "Clip inset moves from 0 0 12px 0 to 0; translateY moves from 5px to 0. Content is visible by default."
+      },
+      {
+        "name": "button-state",
+        "value": "background 0.15s, color 0.15s, transform 0.2s var(--ease)",
+        "purpose": "Action state transition, disabled by the reduced-motion query."
+      },
+      {
+        "name": "poster-hover",
+        "value": "filter 0.2s",
+        "purpose": "Event-card hover increases poster brightness to 1.045."
+      },
+      {
+        "name": "loader",
+        "value": "spin 0.8s linear infinite",
+        "purpose": "Loading indicator rotation; removed with all animations under reduced motion."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation: none !important; transition: none !important; scroll-behavior: auto !important",
+        "purpose": "Applied to elements and pseudo-elements under prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow-max",
+        "value": "450px"
+      },
+      {
+        "name": "mobile-max",
+        "value": "760px"
+      },
+      {
+        "name": "compact-max",
+        "value": "1050px"
+      },
+      {
+        "name": "wide-min",
+        "value": "1600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled cobalt action used for the next task.",
+      "html": "<button class=\"ds-button-primary\">Reserve tickets <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></button>",
+      "css": ".ds-button-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:\"Manrope Variable\",sans-serif;font-weight:650;font-size:.875rem;min-height:48px;border-radius:8px;transition:background .15s,color .15s,transform .2s var(--ease,cubic-bezier(.16,1,.3,1));cursor:pointer;padding:12px 22px;border:1px solid transparent;line-height:1.4;background:var(--accent,#344f9d);color:var(--paper,#f8f7f2);}.ds-button-primary svg{flex-shrink:0;}.ds-button-primary:hover:not(:disabled){background:var(--accent-hover,#253c7d);}.ds-button-primary:disabled{cursor:not-allowed;opacity:.5;}.ds-button-primary:focus-visible{outline:3px solid var(--accent,#344f9d);outline-offset:4px;}@media(prefers-reduced-motion:reduce){.ds-button-primary{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Bounded transparent alternative for a secondary action.",
+      "html": "<button class=\"ds-button-secondary\">Keep it</button>",
+      "css": ".ds-button-secondary{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:\"Manrope Variable\",sans-serif;font-weight:650;font-size:.875rem;min-height:48px;border-radius:8px;transition:background .15s,color .15s,transform .2s var(--ease,cubic-bezier(.16,1,.3,1));cursor:pointer;padding:12px 22px;border:1px solid transparent;line-height:1.4;background:transparent;color:var(--ink,#242822);border-color:#9fa696;}.ds-button-secondary:hover:not(:disabled){background:#e1e3d8;}.ds-button-secondary:disabled{cursor:not-allowed;opacity:.5;}.ds-button-secondary:focus-visible{outline:3px solid var(--accent,#344f9d);outline-offset:4px;}@media(prefers-reduced-motion:reduce){.ds-button-secondary{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}@media(prefers-contrast:more){.ds-button-secondary{border-color:#5b6652;}}"
+    },
+    {
+      "name": "Danger Button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Brick filled action for the destructive confirmation.",
+      "html": "<button class=\"ds-button-danger\">Cancel booking</button>",
+      "css": ".ds-button-danger{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:\"Manrope Variable\",sans-serif;font-weight:650;font-size:.875rem;min-height:48px;border-radius:8px;transition:background .15s,color .15s,transform .2s var(--ease,cubic-bezier(.16,1,.3,1));cursor:pointer;padding:12px 22px;border:1px solid transparent;line-height:1.4;background:var(--danger,#8d302d);color:var(--paper,#f8f7f2);}.ds-button-danger:hover:not(:disabled){background:#6f2421;}.ds-button-danger:disabled{cursor:not-allowed;opacity:.5;}.ds-button-danger:focus-visible{outline:3px solid var(--accent,#344f9d);outline-offset:4px;}@media(prefers-reduced-motion:reduce){.ds-button-danger{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Text Button",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Inline cobalt action that underlines on hover.",
+      "html": "<button class=\"ds-button-text\">Explore events <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></button>",
+      "css": ".ds-button-text{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:\"Manrope Variable\",sans-serif;font-weight:650;font-size:.875rem;min-height:48px;border-radius:8px;transition:background .15s,color .15s,transform .2s var(--ease,cubic-bezier(.16,1,.3,1));cursor:pointer;justify-content:flex-start;padding:8px 0;border:0;background:transparent;color:var(--accent,#344f9d);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:5px;}.ds-button-text svg{flex-shrink:0;}.ds-button-text:hover{text-decoration-color:currentColor;}.ds-button-text:disabled{cursor:not-allowed;opacity:.5;}.ds-button-text:focus-visible{outline:3px solid var(--accent,#344f9d);outline-offset:4px;}@media(prefers-reduced-motion:reduce){.ds-button-text{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Icon Button",
+      "kind": "button",
+      "refersTo": "button-icon",
+      "description": "Circular 44px target with an inline Lucide close icon.",
+      "html": "<button class=\"ds-button-icon\" aria-label=\"Close confirmation\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M18 6 6 18\"/><path d=\"m6 6 12 12\"/></svg></button>",
+      "css": ".ds-button-icon{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:\"Manrope Variable\",sans-serif;font-weight:650;font-size:.875rem;min-height:48px;border-radius:8px;transition:background .15s,color .15s,transform .2s var(--ease,cubic-bezier(.16,1,.3,1));cursor:pointer;width:44px;min-height:44px;border:0;background:transparent;color:var(--ink,#242822);border-radius:50%;}.ds-button-icon svg{flex-shrink:0;}.ds-button-icon:hover{background:#dfe2d5;}.ds-button-icon:disabled{cursor:not-allowed;opacity:.5;}.ds-button-icon:focus-visible{outline:3px solid var(--accent,#344f9d);outline-offset:4px;}@media(prefers-reduced-motion:reduce){.ds-button-icon{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Labeled Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Paper text field with the repaired active boundary and separate disabled styling.",
+      "html": "<label class=\"ds-field-label\">Event title<input class=\"ds-field\" type=\"text\" placeholder=\"Enter an event title\"/><small>Use the published event name.</small></label>",
+      "css": ".ds-field-label{display:flex;flex-direction:column;gap:8px;font-family:\"Manrope Variable\",sans-serif;font-size:.83rem;font-weight:650;margin-bottom:22px;color:var(--ink,#242822);}.ds-field-label small{font-size:.8rem;line-height:1.6;font-weight:450;color:var(--muted,#60665c);}.ds-field{box-sizing:border-box;font-family:\"Manrope Variable\",sans-serif;font-weight:inherit;width:100%;min-width:0;min-height:48px;border:1px solid #7d8675;border-radius:7px;padding:12px 14px;background:var(--paper,#f8f7f2);color:var(--ink,#242822);font-size:1rem;caret-color:var(--accent,#344f9d);}.ds-field::placeholder{color:#697061;opacity:1;}.ds-field:hover{border-color:#697660;}.ds-field:disabled{border-color:#b7bcae;color:#60665c;background:#e4e5dc;opacity:1;}.ds-field:focus-visible{outline:3px solid var(--accent,#344f9d);outline-offset:4px;}@media(prefers-contrast:more){.ds-field{border-color:#5b6652;}}"
+    },
+    {
+      "name": "Main Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Text navigation with an ink active underline and 44px link targets.",
+      "html": "<nav class=\"ds-main-nav\" aria-label=\"Main navigation\"><a class=\"ds-nav-link ds-nav-active\" href=\"#discover\" aria-current=\"page\">Discover</a><a class=\"ds-nav-link\" href=\"#bookings\">My bookings</a><a class=\"ds-nav-link\" href=\"#organizer\">Organizer</a></nav>",
+      "css": ".ds-main-nav{display:flex;gap:28px;align-items:center;font-family:\"Manrope Variable\",sans-serif;font-size:.9rem;font-weight:650;}.ds-nav-link{position:relative;display:flex;align-items:center;min-height:44px;color:var(--muted,#60665c);text-decoration:none;}.ds-nav-active{color:var(--ink,#242822);}.ds-nav-active:after{content:\"\";position:absolute;bottom:0;height:2px;left:0;right:0;background:var(--ink,#242822);}.ds-nav-link:hover{color:var(--accent,#344f9d);}.ds-nav-link:focus-visible{outline:3px solid var(--accent,#344f9d);outline-offset:4px;}@media(max-width:1050px){.ds-main-nav{gap:20px;}}@media(max-width:760px){.ds-main-nav{width:100%;justify-content:flex-start;gap:24px;font-size:.8rem;}.ds-nav-active:after{bottom:-6px;}}"
+    },
+    {
+      "name": "Status Badges",
+      "kind": "chip",
+      "refersTo": "badge-neutral",
+      "description": "Noninteractive backend status labels; separate text and color express each state.",
+      "html": "<div class=\"ds-badge-set\"><span class=\"ds-badge\">Pending</span><span class=\"ds-badge ds-badge-positive\">Valid</span><span class=\"ds-badge ds-badge-negative\">Expired</span></div>",
+      "css": ".ds-badge-set{display:flex;gap:10px;flex-wrap:wrap;}.ds-badge{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:\"Manrope Variable\",sans-serif;font-size:.75rem;line-height:1.4;font-weight:650;border-radius:6px;padding:7px 10px;white-space:nowrap;text-transform:capitalize;background:#dfe3ec;color:#34476b;}.ds-badge-positive{background:#dae4d5;color:#304d2d;}.ds-badge-negative{background:#eadbd4;color:#7e342e;}@media(prefers-contrast:more){.ds-badge{outline:1px solid currentColor;}}"
+    },
+    {
+      "name": "Event Card",
+      "kind": "card",
+      "refersTo": "event-card",
+      "description": "Unboxed event link with geometric ticket art and readable metadata. Date, location and price placeholders are preview-only.",
+      "html": "<a class=\"ds-event-card\" href=\"#event\"><div class=\"ds-poster\" aria-hidden=\"true\"><div class=\"ds-poster-top\"><span>Event category</span><span>Live / In person</span></div><div class=\"ds-poster-title\">At the Door — Admission Demo</div><div class=\"ds-poster-bottom\"><span class=\"ds-poster-date\">DD<small>MON</small></span><span class=\"ds-poster-emblem\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"48\" height=\"48\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z\"/><path d=\"M13 5v2\"/><path d=\"M13 17v2\"/><path d=\"M13 11v2\"/></svg></span><span>Be<br/>there.</span></div></div><div class=\"ds-card-meta\"><span>Event date</span><span>Event location</span></div><h3 class=\"ds-card-title\">At the Door — Admission Demo <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></h3><p class=\"ds-card-copy\">Event description</p><div class=\"ds-card-bottom\"><span>Server price</span><span class=\"ds-card-link\">View event <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></span></div></a>",
+      "css": ".ds-event-card{display:block;min-width:0;color:var(--ink,#242822);text-decoration:none;font-family:\"Manrope Variable\",sans-serif;font-weight:450;}.ds-poster{box-sizing:border-box;width:100%;min-width:0;position:relative;isolation:isolate;overflow:hidden;border-radius:var(--radius,14px);min-height:300px;aspect-ratio:1.18;display:flex;flex-direction:column;padding:22px;background:#344878;color:#f4efde;transition:filter .2s;}.ds-poster:before{box-sizing:border-box;content:\"\";position:absolute;z-index:-1;width:230px;height:230px;border:35px solid currentColor;opacity:.12;border-radius:50%;right:-65px;bottom:-72px;}.ds-poster:after{content:\"\";position:absolute;right:72px;top:0;height:100%;border-left:1px dashed currentColor;opacity:.24;}.ds-poster-top{display:flex;justify-content:space-between;align-items:center;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;gap:10px;}.ds-poster-top>span:first-child{max-width:65%;overflow-wrap:anywhere;}.ds-poster-top>span:last-child{max-width:65px;}.ds-poster-title{flex-shrink:0;font-family:var(--display,\"Bricolage Grotesque Variable\",sans-serif);font-size:clamp(1.7rem,2.8vw,2.8rem);font-weight:600;letter-spacing:-.035em;line-height:1.03;margin:auto 0;max-width:90%;padding:24px 0;overflow-wrap:anywhere;text-wrap:balance;}.ds-poster-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;font-family:var(--display,\"Bricolage Grotesque Variable\",sans-serif);}.ds-poster-date{font-size:2.9rem;line-height:.8;display:flex;align-items:flex-end;gap:8px;font-weight:500;letter-spacing:-.04em;}.ds-poster-date small{font-family:\"Manrope Variable\",sans-serif;font-size:.7rem;font-weight:650;text-transform:uppercase;letter-spacing:.08em;line-height:1;}.ds-poster-emblem svg{width:48px;height:48px;transform:rotate(-25deg);}.ds-poster-bottom>span:last-child{font-size:.75rem;line-height:1.15;width:52px;}.ds-event-card:hover .ds-poster{filter:brightness(1.045);}.ds-event-card:focus-visible{border-radius:14px;}.ds-event-card:focus-visible{outline:3px solid var(--accent,#344f9d);outline-offset:4px;}.ds-card-meta{display:flex;justify-content:space-between;gap:12px;margin-top:20px;font-size:.7rem;font-weight:600;color:var(--muted,#60665c);}.ds-card-title{display:flex;justify-content:space-between;gap:16px;font-family:var(--display,\"Bricolage Grotesque Variable\",sans-serif);font-size:1.35rem;font-weight:650;letter-spacing:-.025em;line-height:1.12;margin:10px 0 0;overflow-wrap:anywhere;}.ds-card-title svg{flex-shrink:0;margin-top:3px;color:var(--accent,#344f9d);}.ds-card-copy{font-size:.85rem;line-height:1.65;color:var(--muted,#60665c);margin:7px 0 0;}.ds-card-bottom{display:flex;justify-content:space-between;gap:16px;font-size:.8rem;margin-top:20px;padding-top:16px;border-top:1px solid var(--line,#d3d5ca);font-weight:650;}.ds-card-link{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;color:var(--accent,#344f9d);}.ds-card-link svg{width:20px;flex-shrink:0;}@media(max-width:1050px){.ds-poster{min-height:240px;padding:18px;aspect-ratio:1;}.ds-poster-title{font-size:2.15rem;}.ds-poster-top{font-size:.55rem;}.ds-poster:after{right:60px;}.ds-poster-bottom>span:last-child{width:42px;}.ds-poster-date{font-size:2.4rem;}.ds-poster-emblem svg{width:36px;height:36px;}}@media(max-width:760px){.ds-poster{aspect-ratio:.9;min-height:230px;}.ds-poster-title{font-size:1.8rem;}.ds-poster-top>span:last-child,.ds-poster-bottom>span:last-child{display:none;}.ds-poster:after{right:30px;}.ds-card-title{font-size:1.15rem;}.ds-card-title svg{width:18px;}.ds-card-meta{font-size:.65rem;margin-top:16px;flex-wrap:wrap;gap:4px;}.ds-card-bottom{flex-direction:column;gap:8px;margin-top:14px;padding-top:12px;}.ds-card-copy{font-size:.75rem;}}@media(max-width:450px){.ds-poster{aspect-ratio:auto;min-height:280px;padding:24px;}.ds-poster-title{font-size:2.8rem;max-width:88%;}.ds-poster-top{font-size:.65rem;}.ds-poster-top>span:last-child,.ds-poster-bottom>span:last-child{display:block;}.ds-poster:after{right:65px;}.ds-poster-emblem svg{width:46px;height:46px;}.ds-card-meta{font-size:.7rem;flex-wrap:nowrap;}.ds-card-title{font-size:1.4rem;}.ds-card-bottom{flex-direction:row;margin-top:18px;}.ds-card-copy{font-size:.85rem;}}@media(prefers-reduced-motion:reduce){.ds-poster{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Receipt Panel",
+      "kind": "custom",
+      "refersTo": "receipt",
+      "description": "Paper transaction summary with a perforated header and server-owned values; preview placeholders carry no financial meaning.",
+      "html": "<section class=\"ds-receipt\" aria-label=\"Booking receipt\"><div class=\"ds-receipt-header\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z\"/><path d=\"M13 5v2\"/><path d=\"M13 17v2\"/><path d=\"M13 11v2\"/></svg><span>Your booking</span></div><dl class=\"ds-receipt-lines\"><div><dt>Ticket category</dt><dd>Category name</dd></div><div><dt>Tickets</dt><dd>Quantity</dd></div><div class=\"ds-receipt-total\"><dt>Total</dt><dd>Server total</dd></div></dl></section>",
+      "css": ".ds-receipt{background:var(--paper,#f8f7f2);color:var(--ink,#242822);padding:30px 36px;border-radius:14px;font-family:\"Manrope Variable\",sans-serif;font-weight:450;}.ds-receipt-header{display:flex;align-items:center;gap:16px;font-family:var(--display,\"Bricolage Grotesque Variable\",sans-serif);font-size:1.5rem;padding-bottom:26px;border-bottom:1px dashed #aeb3a4;}.ds-receipt-header svg{width:28px;height:28px;flex-shrink:0;}.ds-receipt-lines{margin:26px 0;}.ds-receipt-lines>div{display:flex;justify-content:space-between;gap:24px;padding:11px 0;font-size:.9rem;}.ds-receipt-lines dt{color:var(--muted,#60665c);}.ds-receipt-lines dd{margin:0;font-variant-numeric:tabular-nums;}.ds-receipt-lines .ds-receipt-total{margin-top:18px;border-top:1px solid var(--line,#d3d5ca);padding-top:24px;font-size:1.5rem;font-family:var(--display,\"Bricolage Grotesque Variable\",sans-serif);font-weight:600;}.ds-receipt-total dt{color:var(--ink,#242822);}@media(max-width:1050px){.ds-receipt{padding:26px;}}@media(max-width:760px){.ds-receipt{padding:24px;}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Editorial Event Guide",
+    "overview": "TicketFlow uses the quiet material language of an independent cultural guide: warm bone ground, paper panels, dark ink and deliberate cobalt. Expressive type and geometric ticket artwork give events personality; navigation and transactional forms stay familiar and direct. The user-confirmed atmosphere is muted and not too bright.\n\nThe implemented system is code-led. It uses circles, rotated SVG ticket emblems and dashed perforations rather than supplied event photography. Event artwork carries real title, category and date, while readable metadata remains outside the art. Receipts and admission tickets repeat the perforated rhythm with less ornament; organizer work uses modest forms, rows and tables.",
+    "keyCharacteristics": [
+      "Warm bone and paper surfaces with restrained cobalt emphasis.",
+      "Self-hosted expressive Bricolage Grotesque paired with clear Manrope.",
+      "Geometric event posters and perforated ticket dividers.",
+      "Familiar controls, visible focus and responsive content containment.",
+      "Flat tonal panels with selective ticket and dialog elevation."
+    ],
+    "rules": [],
+    "dos": [
+      "**Do** use bone as the application ground and paper to group transactional content.",
+      "**Do** pair Bricolage Grotesque headings with Manrope body, labels and controls.",
+      "**Do** preserve complete event titles and date metadata with content-driven poster height.",
+      "**Do** keep active field boundaries distinct from disabled field boundaries.",
+      "**Do** preserve visible cobalt focus, the implemented control hit heights and reduced-motion behavior.",
+      "**Do** use the dashed ticket rhythm on event art, receipts and admission credentials."
+    ],
+    "donts": [
+      "**Don't** brighten the muted editorial palette into a high-saturation application shell.",
+      "**Don't** substitute invented venue photography or invented event data for API event content.",
+      "**Don't** add glass, gradients, faux charts or decorative statistics to this chosen world.",
+      "**Don't** communicate transaction status by color alone or collapse separate backend states into a single outcome.",
+      "**Don't** use the disabled field border as the active field boundary.",
+      "**Don't** replace the shared SVG icon language with Unicode navigation arrows."
+    ]
+  }
+}
+

@@ -1,0 +1,2 @@
+# ADR 004: Docker is the build and verification boundary
+Accepted. Node 24 LTS multi-stage image, lockfile npm ci, separate API/worker commands, successful single migration dependency, health-aware infrastructure. Local named network is configurable; tests use project-scoped networks/data. Production application mode disables simulator and local credentials independently of NODE_ENV. Never remove development volumes during verification.

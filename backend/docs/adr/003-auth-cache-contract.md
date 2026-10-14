@@ -1,0 +1,2 @@
+# ADR 003: Auth, cache and independent v1 contract
+Accepted. Exact Origin auth POST checks, Argon2id, short JWTs, hashed opaque refresh rotation with family revocation. Database roles override stale JWT claims. Cache only public catalog with SQL generation keys, bounded TTL and fallback. One checked-in OpenAPI source serves local/test and exports ticketflow-api-v1. Frontend is an independent HTTP consumer; default origin localhost:8080.

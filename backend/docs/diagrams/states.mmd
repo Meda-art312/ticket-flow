@@ -1,0 +1,10 @@
+stateDiagram-v2
+  [*] --> RESERVED
+  RESERVED --> CONFIRMED: verified success before database deadline
+  RESERVED --> EXPIRED: database deadline reached
+  RESERVED --> CANCELED: customer or event cancellation
+  CONFIRMED --> REFUND_PENDING: eligible refund request
+  REFUND_PENDING --> REFUNDED: verified refund success
+  REFUND_PENDING --> CONFIRMED: terminal refund failure
+  EXPIRED --> EXPIRED: late capture and separate compensation
+  CANCELED --> CANCELED: late capture and separate compensation

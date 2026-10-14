@@ -1,0 +1,5 @@
+# ADR 005: Preserve the winning capture association
+
+Accepted. A payment attempt has `confirms_booking`, with a partial unique index allowing one winning capture per booking. Confirmation sets it within the inventory/ticket transaction. Normal refunds and cancellation refunds select that capture, never the earliest or latest successful attempt. An older failed attempt can capture late after a newer attempt wins, and its compensation must not accidentally become the financial target of a later customer refund. Booking detail prefers the winning attempt for payment status. Historical migration identifies the first processed capture using updated_at and issued ticket evidence; fresh transactions persist the association explicitly.
+
+Repeated terminal failure evidence is ignored so an old failed refund cannot revert a booking suspended by a subsequent event cancellation refund. Successful refund evidence remains monotonic. Contradictory provider evidence remains an operational reconciliation concern.

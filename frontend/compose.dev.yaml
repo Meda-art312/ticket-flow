@@ -1,0 +1,7 @@
+services:
+  web:
+    build: { context: ., target: development }
+    volumes: ["./src:/app/src", "./index.html:/app/index.html", "./vite.config.ts:/app/vite.config.ts"]
+    command: [npm, run, dev]
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://localhost:8080').then(r=>process.exit(r.ok?0:1))"]

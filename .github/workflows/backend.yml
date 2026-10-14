@@ -1,0 +1,29 @@
+name: Backend
+on: [push, pull_request]
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - name: Isolated real-infrastructure checks
+        run: sh scripts/test.sh
+      - name: Production image
+        run: docker build --target production -t ticketflow-backend:ci .
+      - name: Local optimized runtime smoke
+        run: |
+          docker compose up --build -d
+          docker compose --profile tools run --rm seed
+          docker compose --profile tools run --rm demo
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: backend-evidence
+          path: backend/artifacts
+      - name: Stop without removing development volumes
+        if: always()
+        run: |
+          docker compose down
+          docker compose -p ticketflow-backend-test -f compose.test.yaml down

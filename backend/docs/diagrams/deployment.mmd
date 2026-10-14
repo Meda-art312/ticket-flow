@@ -1,0 +1,19 @@
+flowchart TB
+  subgraph ticketflow-local
+    API[api alias api :3000]
+    W[worker same production image]
+    M[migrate one-shot]
+    PG[(postgres persistent volume)]
+    R[redis]
+    MQ[rabbitmq persistent volume]
+    Mail[mailpit]
+    M --> PG
+    API --> PG
+    W --> PG
+    API --> R
+    W --> MQ
+    W --> Mail
+  end
+  Host[localhost :3000] --> API
+  Frontend[Separate optional frontend network member] --> API
+  Test[Isolated Compose project network and data] --> TestDB[(Separate test PostgreSQL)]

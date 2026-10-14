@@ -1,0 +1,20 @@
+sequenceDiagram
+  participant C as Customer
+  participant A as API
+  participant D as PostgreSQL
+  participant P as Provider
+  participant W as Worker
+  C->>A: reserve with Idempotency-Key
+  A->>D: lock event; conditional inventory; booking; outbox; result
+  D-->>A: commit
+  C->>A: checkout with Idempotency-Key
+  A->>D: persist financial operation identity
+  D-->>A: commit
+  A->>P: create session using stored identity
+  A->>D: save response or uncertainty
+  P->>A: signed raw-body webhook
+  A->>D: durable unique inbox
+  A-->>P: 2xx
+  W->>D: claim inbox then lock event/booking/category/payment
+  W->>D: database-time eligibility; confirmation or compensation; outbox
+  Note over W,D: no network calls inside business transactions

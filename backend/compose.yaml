@@ -1,0 +1,154 @@
+name: ticketflow-backend
+x-environment: &environment
+  APP_MODE: ${APP_MODE:-local}
+  PAYMENT_PROVIDER: ${PAYMENT_PROVIDER:-simulator}
+  DATABASE_URL: postgres://ticketflow:ticketflow-local@postgres:5432/ticketflow
+  REDIS_URL: redis://redis:6379
+  RABBITMQ_URL: amqp://ticketflow:ticketflow-local@rabbitmq:5672
+  FRONTEND_ORIGIN: ${FRONTEND_ORIGIN:-http://localhost:8080}
+  PUBLIC_API_URL: ${PUBLIC_API_URL:-http://localhost:3000}
+  COOKIE_SECURE: ${COOKIE_SECURE:-false}
+  JWT_SECRET: ${JWT_SECRET:-local-only-jwt-secret-change-before-sharing-0001}
+  TOKEN_ENCRYPTION_KEY: ${TOKEN_ENCRYPTION_KEY:-local-only-encryption-key-change-before-sharing}
+  SIMULATOR_SECRET: ${SIMULATOR_SECRET:-local-only-simulator-signing-secret-00001}
+  INTERNAL_SECRET: ${INTERNAL_SECRET:-local-only-internal-controls-secret-00001}
+  RESERVATION_SECONDS: ${RESERVATION_SECONDS:-600}
+  STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
+  STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
+  STRIPE_ACCOUNT_ID: ${STRIPE_ACCOUNT_ID:-}
+x-app: &app
+  build: { context: ., target: production }
+  environment: *environment
+  init: true
+  restart: unless-stopped
+  stop_grace_period: 40s
+  depends_on:
+    migrate: { condition: service_completed_successfully }
+    postgres: { condition: service_healthy }
+    redis: { condition: service_healthy }
+    rabbitmq: { condition: service_healthy }
+services:
+  postgres:
+    image: postgres:17.6-bookworm
+    environment:
+      {
+        POSTGRES_USER: ticketflow,
+        POSTGRES_PASSWORD: ticketflow-local,
+        POSTGRES_DB: ticketflow,
+      }
+    volumes: [postgres-data:/var/lib/postgresql/data]
+    healthcheck:
+      {
+        test: [CMD-SHELL, "pg_isready -U ticketflow -d ticketflow"],
+        interval: 3s,
+        timeout: 3s,
+        retries: 30,
+      }
+  redis:
+    image: redis:7.4.5-alpine
+    command: [redis-server, --appendonly, "yes", --maxmemory, 128mb, --maxmemory-policy, allkeys-lru]
+    volumes: [redis-data:/data]
+    healthcheck:
+      { test: [CMD, redis-cli, ping], interval: 3s, timeout: 3s, retries: 30 }
+  rabbitmq:
+    image: rabbitmq:4.1.4-management-alpine
+    environment:
+      {
+        RABBITMQ_DEFAULT_USER: ticketflow,
+        RABBITMQ_DEFAULT_PASS: ticketflow-local,
+      }
+    volumes: [rabbitmq-data:/var/lib/rabbitmq]
+    ports: ["127.0.0.1:15672:15672"]
+    healthcheck:
+      {
+        test: [CMD, rabbitmq-diagnostics, -q, check_running],
+        interval: 5s,
+        timeout: 5s,
+        retries: 30,
+      }
+  mailpit:
+    image: axllent/mailpit:v1.27.8
+    ports: ["127.0.0.1:8025:8025"]
+  migrate:
+    build: { context: ., target: production }
+    environment: *environment
+    command: [node, dist/src/infra/migrate.js]
+    depends_on: { postgres: { condition: service_healthy } }
+    restart: "no"
+  api:
+    <<: *app
+    ports: ["127.0.0.1:3000:3000"]
+    networks: { default: { aliases: [api] } }
+    healthcheck:
+      {
+        test:
+          [
+            CMD,
+            node,
+            -e,
+            "fetch('http://localhost:3000/health/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+          ],
+        interval: 5s,
+        timeout: 4s,
+        retries: 20,
+      }
+  worker:
+    <<: *app
+    command: [node, dist/src/worker.js]
+    healthcheck:
+      {
+        test:
+          [
+            CMD,
+            node,
+            -e,
+            "fetch('http://localhost:3001/health/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+          ],
+        interval: 5s,
+        timeout: 4s,
+        retries: 20,
+      }
+  seed:
+    profiles: [tools]
+    build: { context: ., target: production }
+    environment:
+      {
+        <<: *environment,
+        SEED_PASSWORD: "${SEED_PASSWORD:-Local-demo-password-2026!}",
+      }
+    command: [node, dist/scripts/seed.js]
+    depends_on: { migrate: { condition: service_completed_successfully } }
+  demo:
+    profiles: [tools]
+    build: { context: ., target: production }
+    environment:
+      {
+        <<: *environment,
+        API_URL: "http://api:3000",
+        SEED_PASSWORD: "${SEED_PASSWORD:-Local-demo-password-2026!}",
+      }
+    command: [node, dist/scripts/demo.js]
+    depends_on: { api: { condition: service_healthy } }
+  prepare-load:
+    extends: seed
+    profiles: [load]
+    command: [node, dist/scripts/prepare-load.js]
+    volumes: ['./artifacts:/app/artifacts']
+  load:
+    profiles: [load]
+    image: grafana/k6:1.3.0
+    volumes: ["./load:/scripts:ro", "./artifacts:/results"]
+    environment:
+      {
+        BASE_URL: "http://api:3000",
+        TOKEN: "${LOAD_TOKEN:-}",
+        CATEGORY_ID: "${LOAD_CATEGORY_ID:-}",
+      }
+    command: [run, --summary-export=/results/k6-summary.json, /scripts/load.js]
+    depends_on: { api: { condition: service_healthy } }
+networks:
+  default: { name: "${TICKETFLOW_NETWORK:-ticketflow-local}" }
+volumes:
+  postgres-data:
+  redis-data:
+  rabbitmq-data:

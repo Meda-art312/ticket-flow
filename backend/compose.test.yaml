@@ -1,0 +1,89 @@
+name: ticketflow-backend-test
+x-env: &env
+  APP_MODE: test
+  QUIET_TEST_LOGS: 'true'
+  PAYMENT_PROVIDER: simulator
+  DATABASE_URL: postgres://ticketflow:isolated-test@postgres:5432/ticketflow_test
+  REDIS_URL: redis://redis:6379
+  RABBITMQ_URL: amqp://ticketflow:isolated-test@rabbitmq:5672
+  JWT_SECRET: test-only-jwt-secret-00000000000000000000
+  TOKEN_ENCRYPTION_KEY: test-only-encryption-secret-00000000000000000
+  SIMULATOR_SECRET: test-only-simulator-secret-00000000000000000
+  INTERNAL_SECRET: test-only-internal-secret-00000000000000000
+  FRONTEND_ORIGIN: http://localhost:8080
+  SMTP_HOST: mailpit
+x-api: &api
+  build: { context: ., target: production }
+  environment: *env
+  depends_on: { migrate: { condition: service_completed_successfully } }
+  healthcheck:
+    {
+      test:
+        [
+          CMD,
+          node,
+          -e,
+          "fetch('http://localhost:3000/health/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ],
+      interval: 3s,
+      timeout: 3s,
+      retries: 30,
+    }
+services:
+  postgres:
+    image: postgres:17.6-bookworm
+    environment:
+      {
+        POSTGRES_USER: ticketflow,
+        POSTGRES_PASSWORD: isolated-test,
+        POSTGRES_DB: ticketflow_test,
+      }
+    healthcheck:
+      {
+        test: [CMD-SHELL, "pg_isready -U ticketflow -d ticketflow_test"],
+        interval: 3s,
+        timeout: 3s,
+        retries: 30,
+      }
+  redis:
+    image: redis:7.4.5-alpine
+  rabbitmq:
+    image: rabbitmq:4.1.4-management-alpine
+    environment:
+      {
+        RABBITMQ_DEFAULT_USER: ticketflow,
+        RABBITMQ_DEFAULT_PASS: isolated-test,
+      }
+    healthcheck:
+      {
+        test: [CMD, rabbitmq-diagnostics, -q, check_running],
+        interval: 3s,
+        timeout: 5s,
+        retries: 30,
+      }
+  mailpit:
+    image: axllent/mailpit:v1.27.8
+  migrate:
+    build: { context: ., target: production }
+    environment: *env
+    command: [node, dist/src/infra/migrate.js]
+    depends_on: { postgres: { condition: service_healthy } }
+  api:
+    <<: *api
+  api2:
+    <<: *api
+  test:
+    build: { context: ., target: test }
+    environment:
+      {
+        <<: *env,
+        API_URL: "http://api:3000",
+        API2_URL: "http://api2:3000",
+        SEED_PASSWORD: "Isolated-test-password-2026!",
+      }
+    depends_on:
+      api: { condition: service_healthy }
+      api2: { condition: service_healthy }
+      rabbitmq: { condition: service_healthy }
+    volumes: ["./artifacts:/app/artifacts"]
+    command: [sh, -c, "npm run seed && npm run check && npm run analyze"]

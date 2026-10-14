@@ -1,0 +1,11 @@
+flowchart LR
+  Client[Independent frontend or API client] --> API[Nest Express API :3000]
+  API --> PG[(PostgreSQL authority)]
+  API --> Redis[(Redis public cache)]
+  Provider[Stripe test or simulator] --> Inbox[Signed durable webhook inbox]
+  Inbox --> PG
+  Worker[Worker and schedulers] --> PG
+  Worker --> Provider
+  Worker --> MQ[RabbitMQ confirms and durable queues]
+  MQ --> Worker
+  Worker --> SMTP[Mailpit SMTP]

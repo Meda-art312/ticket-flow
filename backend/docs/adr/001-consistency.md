@@ -1,0 +1,2 @@
+# ADR 001: SQL authority, ordered locks and explicit SQL
+Accepted. PostgreSQL CHECK constraints plus event → booking → category → financial → ticket locks enforce inventory. Drizzle executes versioned SQL migrations; parameterized pg SQL expresses conditional updates and reports. Database wall-clock time after waiting defines expiry. Alternative Redis inventory would require distributed reconciliation and is rejected. Event locks deliberately serialize writes per event; benchmark before reducing granularity.

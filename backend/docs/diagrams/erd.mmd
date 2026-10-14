@@ -1,0 +1,148 @@
+erDiagram
+  users {
+    uuid id PK
+    text email UK
+    text password_hash
+  }
+  user_roles {
+    uuid user_id FK
+    text role "Composite primary key with user_id"
+  }
+  refresh_sessions {
+    uuid id PK
+    uuid user_id FK
+    text token_hash UK
+    uuid family
+    timestamptz expires_at
+    timestamptz revoked_at
+  }
+  venues {
+    uuid id PK
+    uuid owner_id FK
+    int capacity
+    timestamptz archived_at
+  }
+  events {
+    uuid id PK
+    uuid owner_id FK
+    uuid venue_id FK
+    text state
+    int capacity
+    text currency
+  }
+  ticket_categories {
+    uuid id PK
+    uuid event_id FK
+    int capacity
+    int reserved_count
+    int sold_count
+    int price_minor
+  }
+  bookings {
+    uuid id PK
+    uuid customer_id FK
+    uuid event_id FK
+    uuid category_id FK
+    int quantity
+    int total_minor
+    text state
+    timestamptz expires_at
+  }
+  payment_attempts {
+    uuid id PK
+    uuid booking_id FK
+    text operation_key UK
+    text provider_payment_id UK
+    boolean confirms_booking "One true row per booking"
+    timestamptz captured_at
+  }
+  refunds {
+    uuid id PK
+    uuid payment_id FK
+    uuid booking_id FK "Nullable for compensation"
+    text operation_key UK
+    text state
+    text reason
+  }
+  tickets {
+    uuid id PK
+    uuid booking_id FK
+    int ordinal "Unique with booking_id"
+    text token_hash UK
+    text token_encrypted
+    text artifact_status
+    uuid checked_in_by FK
+  }
+  webhook_events {
+    uuid id PK
+    text provider
+    text event_id "Unique with provider"
+    jsonb payload
+    text state
+    timestamptz lease_until
+  }
+  outbox_events {
+    uuid id PK
+    uuid aggregate_id
+    text correlation_id
+    timestamptz published_at
+    timestamptz lease_until
+  }
+  processed_messages {
+    text consumer_name "Composite primary key"
+    uuid event_id "Composite primary key"
+  }
+  notification_jobs {
+    uuid id PK
+    uuid booking_id FK
+    text business_key UK
+    text state
+  }
+  idempotency_requests {
+    uuid actor_id FK
+    text operation "Composite primary key"
+    text key "Composite primary key"
+    jsonb result
+  }
+  audit_logs {
+    uuid id PK
+    uuid actor_id FK
+    uuid resource_id
+    text correlation_id
+  }
+  demo_sessions {
+    uuid id PK
+    uuid attempt_id FK,UK
+    text outcome
+  }
+  simulator_operations {
+    text operation_key PK
+    jsonb result
+  }
+  catalog_generation {
+    int id PK
+    bigint generation
+  }
+  dead_letters {
+    uuid id PK
+    uuid event_id
+    jsonb envelope
+  }
+  users ||--o{ user_roles : has
+  users ||--o{ refresh_sessions : rotates
+  users ||--o{ venues : owns
+  users ||--o{ events : owns
+  venues ||--o{ events : hosts
+  events ||--o{ ticket_categories : offers
+  events ||--o{ bookings : receives
+  users ||--o{ bookings : reserves
+  ticket_categories ||--o{ bookings : allocates
+  bookings ||--o{ payment_attempts : pays
+  payment_attempts ||--o{ refunds : reverses
+  bookings o|--o{ refunds : confirmed_purchase
+  bookings ||--o{ tickets : issues
+  users o|--o{ tickets : admits
+  bookings ||--o{ notification_jobs : notifies
+  users ||--o{ idempotency_requests : commands
+  users o|--o{ audit_logs : acts
+  payment_attempts ||--o| demo_sessions : simulates

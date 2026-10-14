@@ -1,0 +1,6 @@
+services:
+  prepare-load:
+    extends: { file: compose.test.yaml, service: test }
+    command: [sh, -c, "npm run seed && npx tsx scripts/prepare-load.ts"]
+  benchmark:
+    extends: { file: compose.yaml, service: load }

@@ -1,0 +1,22 @@
+# Local credentials and generated dependencies
+**/node_modules/
+**/dist/
+**/.env
+**/.env.*
+!**/.env.example
+
+# Local verification evidence can contain test credentials and private tickets
+**/artifacts/
+**/coverage/
+**/test-results/
+**/playwright-report/
+frontend/.impeccable/review/
+frontend/.impeccable/hook.cache.json
+
+# Authoring files and personal resume deliverables remain local
+/tmp/
+/Mohamed-Medhat-Abdelfattah.pdf
+/Mohamed-Medhat-Abdelfattah.tex
+/*-codex-prompt.md
+.DS_Store
+Thumbs.db

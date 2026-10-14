@@ -1,0 +1,23 @@
+name: ticketflow-frontend
+services:
+  web:
+    build: { context: ., target: production }
+    init: true
+    restart: unless-stopped
+    environment:
+      BACKEND_UPSTREAM: ${BACKEND_UPSTREAM:-http://api:3000}
+    ports: ["127.0.0.1:${WEB_PORT:-8080}:8080"]
+    networks: [ticketflow]
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, http://127.0.0.1:8080/health/live]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+  check:
+    build: { context: ., target: test }
+    profiles: [tools]
+    network_mode: none
+networks:
+  ticketflow:
+    external: true
+    name: ${TICKETFLOW_NETWORK:-ticketflow-local}
