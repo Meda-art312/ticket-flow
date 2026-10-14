@@ -46,7 +46,7 @@ The e2e script creates ignored `.env.e2e` credentials, resets only the disposabl
 Manual harness commands:
 
 ```sh
-docker run --rm --mount "type=bind,source=$PWD,target=/work" -w /work node:24.21.0-bookworm-slim node scripts/e2e-env.mjs
+docker run --rm --user "$(id -u):$(id -g)" --mount "type=bind,source=$PWD,target=/work" -w /work node:24.21.0-bookworm-slim node scripts/e2e-env.mjs
 # Reset only disposable test fixtures before a fresh run:
 docker compose --env-file .env.e2e -p ticketflow-frontend-e2e -f compose.e2e.yaml down --volumes --remove-orphans
 docker compose --env-file .env.e2e -p ticketflow-frontend-e2e -f compose.e2e.yaml up --build --wait -d web unavailable worker rabbitmq redis mailpit
