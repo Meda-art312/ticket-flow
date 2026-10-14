@@ -57,6 +57,8 @@ docker compose --profile tools run --build --rm check
 
 POSIX equivalents are documented in each application's README. Tests own isolated networks/data. GitHub Actions workflows run backend and frontend checks on pushes and pull requests.
 
+Hosted verification also passed for code commit `8ee1079`: [backend checks/build/runtime](https://github.com/Meda-art312/ticket-flow/actions/runs/38618510419) and [frontend standalone/browser checks](https://github.com/Meda-art312/ticket-flow/actions/runs/38618510296). The initial Linux browser-job credential ownership failure is retained in the workflow history and documented with its correction.
+
 ## Documentation and scope
 
 [Backend setup](backend/README.md) · [Architecture](backend/docs/architecture.md) · [API contract](backend/docs/openapi.json) · [Backend evidence](backend/docs/verification.md) · [Performance measurements](backend/docs/performance.md) · [Frontend setup](frontend/README.md) · [Browser walkthrough](frontend/docs/browser-walkthrough.md) · [Frontend evidence](frontend/docs/verification.md)
